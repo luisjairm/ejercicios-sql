@@ -18,6 +18,8 @@
   breaklines,
 }
 
+\definecolor{myGray}{HTML}{F2F3F3}
+
 %  not bold
 \titleformat{\subsubsection}
   {\normalfont\fontfamily{phv}\fontsize{11}{15}\selectfont}{\thesubsubsection}{1em}{}
@@ -113,8 +115,8 @@
   \subsubsection{Lista el \textit{\textbf{indentificador}} de los fabricantes que tienen productos el tabla \textit{\textbf{producto}}}
    \mint{sql}|SELECT fabricante.id FROM fabricante LEFT JOIN producto ON fabricante.id = producto.id_fabricante|
   
-  \subsubsection{Lista el \textit{\textbf{indetificador}} de los fabricantes que tienen productos en la tabla \textit{\textbf{producto}}, \textit{\textbf{eliminando}} los identificadores que aparecen repetidos - \textit{\textbf{PENDIENTE}} }
-   \mint{sql}||
+  \subsubsection{Lista el \textit{\textbf{indetificador}} de los fabricantes que tienen productos en la tabla \textit{\textbf{producto}}, \textit{\textbf{eliminando}} los identificadores que aparecen repetidos}
+   \mint{sql}|SELECT DISTINCT fabricante.id, fabricante.nombre FROM fabricante LEFT JOIN producto ON fabricante.id = producto.id_fabricante;|
 
   \subsubsection{Lista los \textit{\textbf{nombres}} de los fabricantes \textit{\textbf{ordenados}} de forma \textit{\textbf{ascendente}}}
    \mint{sql}|SELECT nombre FROM fabricante ORDER BY nombre ASC;|
@@ -122,6 +124,9 @@
   \subsubsection{Lista los \textit{\textbf{nombres}} de los fabricantes \textit{\textbf{ordenados}} de forma \textit{\textbf{descendente}}}
    \mint{sql}|SELECT nombre FROM fabricante ORDER BY nombre DESC;|
 
-  \subsubsection{Lista los nombres}
-   \mint{sql}|select|
+  \subsubsection{Lista los \textit{\textbf{nombres}} de los productos ordenados \textit{\textbf{en primer lugar por el nombre de forma ascendente}} y \textit{\textbf{en segundo lugar por el precio de forma descendente}} }
+   \mint{sql}|SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;|
+
+   \subsubsection{Devuelve una \textit{\textbf{lista}} con las \textit{\textbf{5 primeras}} filas de la tabla \colorbox{myGray}{fabricante}}
+    \mint{sql}|SELECT * FROM fabricante LIMIT 5;|
 \end{document}
